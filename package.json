@@ -1,0 +1,27 @@
+{
+  "name": "crosswalk",
+  "version": "1.0.0",
+  "description": "NPM wrapper for installing Crosswalk",
+  "main": "lib/crosswalk",
+  "scripts": {
+    "install": "node install.js",
+    "test": "mocha",
+    "test-watch": "mocha --watch"
+  },
+  "keywords": [
+    "crosswalk",
+    "cordova"
+  ],
+  "author": "Tom Vincent <npm@tlvince.com> (https://tlvince.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^0.15.1",
+    "mocha": "^2.1.0",
+    "should": "^5.0.1"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.13",
+    "decompress": "^2.1.1",
+    "progress": "^1.1.8"
+  }
+}
