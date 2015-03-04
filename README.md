@@ -25,7 +25,7 @@ When used with `cordova-lib`, Crosswalk can be specified as the target
 platform:
 
 ```js
-var cordova = require('cordova-lib');
+var cordova = require('cordova-lib').cordova;
 var crosswalk = require('crosswalk');
 
 cordova.platform('add', crosswalk.path, function(err) {
