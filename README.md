@@ -4,26 +4,35 @@
 
 ## Usage
 
-This package downloads Crosswalk and exposes the path to its `bin` directory.
-Example usage:
+This package downloads Crosswalk and exposes the path to the extracted
+directory.
 
 ```shell
 npm install crosswalk
 ```
 
 ```js
-var path = require('path');
-var childProcess = require('child_process');
+var crosswalk = require('crosswalk');
+console.log(crosswalk.path);
+// => /path/to/crosswalk
+```
+
+## Examples
+
+### `cordova-lib`
+
+When used with `cordova-lib`, Crosswalk can be specified as the target
+platform:
+
+```js
+var cordova = require('cordova-lib');
 var crosswalk = require('crosswalk');
 
-var create = path.join(crosswalk.path, 'create');
-
-var childArgs = [
-  'test'
-];
-
-childProcess.execFile(create, childArgs, function(err, stdout, stderr) {
-  // handle results
+cordova.platform('add', crosswalk.path, function(err) {
+  // Handle error
+  cordova.build(function(err) {
+    // APK built with Crosswalk webview
+  });
 });
 ```
 
