@@ -4,22 +4,26 @@ var bundle = require('./lib/bundle');
 var extract = require('./lib/extract');
 var download = require('./lib/download');
 
-function extractCrosswalk() {
-  return extract.crosswalk(bundle.downloadPath);
-}
-
 function errorHandler(err) {
   throw err;
 }
 
-function maybeDownload(err) {
-  if (!err || err.code !== 'ENOENT') {
-    throw err;
-  }
+function extractCrosswalk() {
+  return extract.crosswalk(bundle.downloadPath, bundle.extractPath);
+}
+
+function downloadCrosswalk() {
   download.crosswalk(bundle.url, bundle.downloadPath)
     .then(extractCrosswalk)
     .catch(errorHandler);
 }
 
+function extractionError(err) {
+  if (err.code && err.code === 'ENOENT') {
+    return downloadCrosswalk();
+  }
+  throw err;
+}
+
 extractCrosswalk()
-  .catch(maybeDownload);
+  .catch(extractionError);
