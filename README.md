@@ -1,5 +1,10 @@
 # crosswalk
 
+[![Build Status][travis-image]][travis-url]
+
+[travis-url]: https://travis-ci.org/eHealthAfrica/crosswalk
+[travis-image]: https://img.shields.io/travis/eHealthAfrica/crosswalk.svg
+
 > npm wrapper for installing Crosswalk
 
 ## Usage
