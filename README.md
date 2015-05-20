@@ -1,3 +1,7 @@
+**DEPRECEATED**: use [cordova-plugin-crosswalk-webview][xwalk].
+
+[xwalk]: https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview
+
 # crosswalk
 
 [![Build Status][travis-image]][travis-url]
